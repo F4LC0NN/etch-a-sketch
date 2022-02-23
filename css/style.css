@@ -1,0 +1,75 @@
+html {
+	box-sizing: border-box;
+	font-family: "Roboto";
+}
+
+*,
+*::before,
+::after {
+	box-sizing: inherit;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100vh;
+	background-color: oldlace;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 10vh;
+	gap: 10px;
+}
+
+#logo {
+	height: 100px;
+}
+
+#title {
+	font-family: "Shizuru", cursive;
+	font-weight: 200;
+	font-size: 48px;
+}
+
+section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 80vh;
+}
+
+#container {
+	display: grid;
+	grid-template-columns: repeat(16, 1fr);
+	box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.15);
+}
+
+.square {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	padding: 20px;
+	border: 1px solid gray;
+}
+
+.square:hover {
+	background-color: blanchedalmond;
+	transform: scale(1.05);
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 10vh;
+}
+
+footer p {
+	font-weight: 300;
+	font-style: italic;
+}
