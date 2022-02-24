@@ -54,3 +54,17 @@ newGrid();
 newGridButton.addEventListener('click', () => {
   newGrid();
 });
+
+inputGridSize.addEventListener('keyup', (event) => {
+  if (event.key == 'Enter') {
+    if (inputGridSize.value < 1 || inputGridSize.value > 16) {
+      return;
+    }
+
+    gridSize = inputGridSize.value;
+    container.removeChild(inputGridSize);
+    container.textContent = undefined;
+    container.id = 'container';
+    generateGrid(gridSize);
+  }
+});
