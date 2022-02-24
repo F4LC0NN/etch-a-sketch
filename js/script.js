@@ -41,3 +41,16 @@ function clearGrid(square) {
     square.style.backgroundColor = 'transparent';
   });
 }
+
+function newGrid() {
+  container.textContent = "Choose between 1 & 16 (Press ENTER to generate)";
+  container.appendChild(inputGridSize);
+  container.id = "change-container";
+  inputGridSize.id = "input-bar";
+}
+
+newGrid();
+
+newGridButton.addEventListener('click', () => {
+  newGrid();
+});
