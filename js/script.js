@@ -35,3 +35,9 @@ function generateGrid() {
 }
 
 generateGrid();
+
+function clearGrid(square) {
+  clearButton.addEventListener('click', () => {
+    square.style.backgroundColor = 'transparent';
+  });
+}
