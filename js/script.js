@@ -34,45 +34,91 @@ function generateGrid() {
   }
 }
 
+// Call the function
 generateGrid();
 
+/*
+-------------------------------------------------------
+CLEAR CURRENT GRID
+-------------------------------------------------------
+*/
+
+// Create a function to turn the square back to transparent
 function clearGrid(square) {
   clearButton.addEventListener('click', () => {
     square.style.backgroundColor = 'transparent';
   });
 }
 
-function newGrid() {
+/*
+-------------------------------------------------------
+TRIGGER THE DIALOG BOX
+-------------------------------------------------------
+*/
+
+// Create a function to replace the current grid with a dialog box
+function triggerDialogBox() {
   container.textContent = "Choose between 1 & 16 (Press ENTER to generate)";
   container.appendChild(inputGridSize);
   container.id = "change-container";
   inputGridSize.id = "input-bar";
 }
 
-newGrid();
+// Call the function
+triggerDialogBox();
 
+// Create an event to trigger the dialog box when clicking on the 'generate new grid' button
 newGridButton.addEventListener('click', () => {
-  newGrid();
+  triggerDialogBox();
 });
 
+/*
+-------------------------------------------------------
+GENERATE A NEW GRID
+-------------------------------------------------------
+*/
+
+// Create a function to generate a new grid from the input in the dialog box
+function generateNewGrid(gridSize) {
+  gridSize = inputGridSize.value;
+  container.removeChild(inputGridSize);
+  container.textContent = undefined;
+  container.id = 'container';
+  generateGrid(gridSize);
+}
+
+// Create an event to trigger the grid creation with the ENTER key
 inputGridSize.addEventListener('keyup', (event) => {
   if (event.key == 'Enter') {
     if (inputGridSize.value < 1 || inputGridSize.value > 16) {
       return;
     }
-
-    gridSize = inputGridSize.value;
-    container.removeChild(inputGridSize);
-    container.textContent = undefined;
-    container.id = 'container';
-    generateGrid(gridSize);
+    generateNewGrid(gridSize);
   }
 });
 
+/*
+-------------------------------------------------------
+ANIMATE BUTTONS
+-------------------------------------------------------
+*/
+
+// Scale down the clear button
 clearButton.addEventListener('mousedown', () => {
   clearButton.style.transform = 'scale(0.98)';
 });
 
+// Scale up the clear button
 clearButton.addEventListener('mouseup', () => {
   clearButton.style.transform = 'scale(1)';
+});
+
+// Scale down the generate new grid button
+newGridButton.addEventListener('mousedown', () => {
+  newGridButton.style.transform = 'scale(0.98)';
+});
+
+// Scale up the generate new grid button
+newGridButton.addEventListener('mouseup', () => {
+  newGridButton.style.transform = 'scale(1)';
 });
