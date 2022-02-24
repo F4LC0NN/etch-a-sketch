@@ -68,3 +68,11 @@ inputGridSize.addEventListener('keyup', (event) => {
     generateGrid(gridSize);
   }
 });
+
+clearButton.addEventListener('mousedown', () => {
+  clearButton.style.transform = 'scale(0.98)';
+});
+
+clearButton.addEventListener('mouseup', () => {
+  clearButton.style.transform = 'scale(1)';
+});
